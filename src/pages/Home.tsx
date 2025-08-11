@@ -1,7 +1,7 @@
-import React from 'react'
 import { useTheme } from '../shared/contexts/ThemeContext'
 import { useI18n } from '../shared/contexts/I18nContext'
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
+import { assets } from '../assets/index'
 
 const HomePage = () => {
   const { theme } = useTheme()
@@ -99,7 +99,7 @@ const HomePage = () => {
                 >
                   {/* Opção 1: Imagem personalizada */}
                   <img
-                    src="/logo.jpg" // ← COLOQUE O CAMINHO DA SUA IMAGEM AQUI
+                    src={assets.logo}
                     alt="Profile"
                     className={`w-20 h-20 object-cover ${
                       theme === 'dark'
