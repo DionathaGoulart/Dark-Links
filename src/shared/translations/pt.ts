@@ -72,7 +72,7 @@ export const ptTranslations: Translation = {
   },
   linktree: {
     bio: 'dark ilustrator',
-    redbubble: 'Roupas, adesivos e muito mais (Redbubble)',
+    redbubble: 'Roupas, adesivos e mais (Redbubble)',
     colab55: 'Compre minha arte no Brasil (Colab55)',
     inprnt: 'Prints (INPRNT)',
     displate: 'Meus pôsteres exclusivos na Displate 🤍',

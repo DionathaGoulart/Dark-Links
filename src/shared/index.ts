@@ -1,5 +1,4 @@
 // Layouts
-export * from './components/layouts/Footer'
 export * from './components/layouts/Header'
 export * from './components/layouts/MainLayout'
 export * from './components/layouts/types'

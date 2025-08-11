@@ -1,3 +1,4 @@
+import React from 'react'
 import { useTheme } from '../shared/contexts/ThemeContext'
 import { useI18n } from '../shared/contexts/I18nContext'
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
@@ -69,8 +70,8 @@ const HomePage = () => {
     <div
       className={`min-h-screen transition-all duration-500 ${
         theme === 'dark'
-          ? 'bg-white' // Tema escuro = fundo branco
-          : 'bg-black' // Tema claro = fundo preto
+          ? 'bg-black' // Tema escuro = fundo branco
+          : 'bg-white' // Tema claro = fundo preto
       }`}
     >
       <div className="container mx-auto px-4 py-8">
@@ -79,22 +80,22 @@ const HomePage = () => {
           <div
             className={`${
               theme === 'dark'
-                ? 'bg-black/10 border-black/50'
-                : 'bg-white/10 border-white/50'
+                ? 'bg-white/10 border-white/50'
+                : 'bg-black/10 border-black/50'
             } backdrop-blur-sm rounded-none border-2 border-dashed p-8 mb-8 text-center shadow-2xl hover:shadow-inner transition-all duration-500 hover:border-solid`}
           >
             {/* Profile Image - Horror Manga Style */}
             <div className="relative mx-auto w-32 h-32 mb-6 group">
               <div
                 className={`absolute inset-0 ${
-                  theme === 'dark' ? 'bg-black' : 'bg-white'
+                  theme === 'dark' ? 'bg-white' : 'bg-black'
                 } transform rotate-45 transition-transform duration-700 group-hover:rotate-[225deg]`}
               >
                 <div
                   className={`w-full h-full ${
-                    theme === 'dark' ? 'bg-white' : 'bg-black'
+                    theme === 'dark' ? 'bg-black' : 'bg-white'
                   } transform -rotate-45 flex items-center justify-center border-4 ${
-                    theme === 'dark' ? 'border-black' : 'border-white'
+                    theme === 'dark' ? 'border-white' : 'border-black'
                   } border-dashed overflow-hidden`}
                 >
                   {/* Opção 1: Imagem personalizada */}
@@ -103,8 +104,8 @@ const HomePage = () => {
                     alt="Profile"
                     className={`w-20 h-20 object-cover ${
                       theme === 'dark'
-                        ? 'filter grayscale contrast-150'
-                        : 'filter grayscale contrast-150 invert'
+                        ? 'filter grayscale contrast-150 invert'
+                        : 'filter grayscale contrast-150'
                     } hover:animate-pulse transition-all duration-300`}
                   />
 
@@ -123,8 +124,8 @@ const HomePage = () => {
 
             {/* Username - Horror Typography */}
             <h1
-              className={`text-3xl font-black mb-2 tracking-wider font-mono ${
-                theme === 'dark' ? 'text-black' : 'text-white'
+              className={`text-3xl font-white mb-2 tracking-wider font-mono ${
+                theme === 'dark' ? 'text-white' : 'text-black'
               } hover:tracking-widest transition-all duration-300`}
             >
               @DARK
@@ -133,7 +134,7 @@ const HomePage = () => {
             {/* Bio */}
             <p
               className={`mb-8 text-sm tracking-wide font-mono ${
-                theme === 'dark' ? 'text-black/90' : 'text-white/90'
+                theme === 'dark' ? 'text-white/90' : 'text-black/90'
               }`}
             >
               {t.linktree?.bio || '/// DARK ILUSTRATOR ///'}
@@ -147,12 +148,18 @@ const HomePage = () => {
                   href={social.href}
                   className={`p-2 transition-all duration-300 hover:scale-125 transform ${
                     theme === 'dark'
-                      ? 'text-black/80 hover:text-black'
-                      : 'text-white/80 hover:text-white'
+                      ? 'text-white/80 hover:text-white'
+                      : 'text-black/80 hover:text-black'
                   } hover:rotate-12`}
                   aria-label={social.label}
                 >
-                  <div className="border-2 border-dashed p-2 hover:border-solid transition-all duration-300">
+                  <div
+                    className={`border-2 border-dashed p-2 hover:border-solid transition-all duration-300 ${
+                      theme === 'dark'
+                        ? 'border-white/60 hover:border-white'
+                        : 'border-black/60 hover:border-black'
+                    }`}
+                  >
                     {social.icon}
                   </div>
                 </a>
@@ -166,10 +173,10 @@ const HomePage = () => {
               <a
                 key={index}
                 href={button.href}
-                className={`block w-full p-6 font-black text-center transition-all duration-500 transform hover:scale-105 hover:shadow-2xl group font-mono tracking-wide ${
+                className={`block w-full p-6 font-white text-center transition-all duration-500 transform hover:scale-105 hover:shadow-2xl group font-mono tracking-wide ${
                   theme === 'dark'
-                    ? 'bg-black/5 hover:bg-black/15 text-black border-2 border-black border-dashed hover:border-solid'
-                    : 'bg-white/5 hover:bg-white/15 text-white border-2 border-white border-dashed hover:border-solid'
+                    ? 'bg-white/5 hover:bg-white/15 text-white border-2 border-white border-dashed hover:border-solid'
+                    : 'bg-black/5 hover:bg-black/15 text-black border-2 border-black border-dashed hover:border-solid'
                 } backdrop-blur-sm hover:tracking-widest text-sm`}
               >
                 <span className="relative z-10 block transform group-hover:skew-x-1 transition-transform duration-300">
@@ -183,7 +190,7 @@ const HomePage = () => {
           <div className="text-center mt-16">
             <p
               className={`text-xs font-mono tracking-widest ${
-                theme === 'dark' ? 'text-black/50' : 'text-white/50'
+                theme === 'dark' ? 'text-white/50' : 'text-black/50'
               }`}
             >
               {t.linktree?.footer || '/// END ///'}

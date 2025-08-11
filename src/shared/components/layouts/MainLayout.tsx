@@ -1,6 +1,5 @@
 import React from 'react'
 import { LayoutHeader } from './Header'
-import { LayoutFooter } from './Footer'
 import { MainLayoutProps } from './types'
 
 export const MainLayout: React.FC<MainLayoutProps> = ({
@@ -24,9 +23,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       <main className="flex-1 bg-primary-white dark:bg-primary-black text-primary-black dark:text-primary-white transition-all duration-300">
         {children}
       </main>
-
-      {/* Footer */}
-      {footer.show && <LayoutFooter />}
     </div>
   )
 }
