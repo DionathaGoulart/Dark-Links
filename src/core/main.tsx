@@ -3,11 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import '@styles'
 import App from './App'
-import { I18nProvider } from './shared/contexts/I18nContext'
-import { initGoogleAnalytics } from './features/trafego/utils/analytics'
-
-// Inicializar Google Analytics
-initGoogleAnalytics()
+import { I18nProvider } from '@/shared/contexts/I18nContext'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
