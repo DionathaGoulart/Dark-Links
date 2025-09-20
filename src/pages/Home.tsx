@@ -134,7 +134,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Link Buttons */}
+        {/* Link Buttons - Estilo da PrintsPage */}
         <div className="space-y-4">
           {linkButtons.map((button, index) => (
             <a
@@ -143,10 +143,10 @@ const HomePage = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleLinkClick(button.title, button.href)}
-              className={`block w-full p-4 rounded-full text-center font-medium transition-all duration-200 hover:scale-105 ${
+              className={`block w-full p-4 mb-4 rounded-full text-center font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
                 theme === 'dark'
-                  ? 'bg-primary-dark hover:bg-gray-700 text-white border border-gray-700'
-                  : 'bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 shadow-sm hover:shadow-md'
+                  ? 'bg-black text-white border-2 border-white hover:bg-white hover:text-black'
+                  : 'bg-white text-black border-2 border-black hover:bg-black hover:text-white'
               }`}
             >
               {button.title}
