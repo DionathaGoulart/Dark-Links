@@ -1,35 +1,15 @@
 // ================================
-// TYPES & INTERFACES
+// Internal Imports
+// ================================
+import { EnvConfig, ValidationResult } from '@types'
+
+// ================================
+// Configuration
 // ================================
 
 /**
- * Environment variables validation configuration
- * Defines required and optional environment variables
- */
-interface EnvConfig {
-  /** List of required environment variables */
-  required: string[]
-  /** List of optional environment variables */
-  optional: string[]
-}
-
-/**
- * Validation result structure
- */
-interface ValidationResult {
-  /** List of validation errors */
-  errors: string[]
-  /** List of validation warnings */
-  warnings: string[]
-}
-
-// ================================
-// CONFIGURATION
-// ================================
-
-/**
- * Complete project environment variables configuration
- * Centralizes all environment variable requirements
+ * Configuração completa das variáveis de ambiente do projeto
+ * Centraliza todos os requisitos de variáveis de ambiente
  */
 const ENV_CONFIG: EnvConfig = {
   required: [
@@ -41,23 +21,23 @@ const ENV_CONFIG: EnvConfig = {
 }
 
 // ================================
-// HELPER FUNCTIONS
+// Helper Functions
 // ================================
 
 /**
- * Validates if an environment variable is defined and not empty
- * @param {string | undefined} value - Environment variable value
- * @returns {boolean} True if variable is valid
+ * Valida se uma variável de ambiente está definida e não está vazia
+ * @param value - Valor da variável de ambiente
+ * @returns True se a variável for válida
  */
 const isValidEnvVar = (value: string | undefined): boolean => {
   return typeof value === 'string' && value.trim().length > 0
 }
 
 /**
- * Validates environment variables and collects errors/warnings
- * @param {string[]} variables - Array of variable names to validate
- * @param {boolean} isRequired - Whether variables are required or optional
- * @returns {string[]} Array of validation messages
+ * Valida variáveis de ambiente e coleta erros/avisos
+ * @param variables - Array de nomes de variáveis para validar
+ * @param isRequired - Se as variáveis são obrigatórias ou opcionais
+ * @returns Array de mensagens de validação
  */
 const validateVariables = (
   variables: string[],
@@ -79,8 +59,8 @@ const validateVariables = (
 }
 
 /**
- * Logs validation results to console
- * @param {ValidationResult} result - Validation errors and warnings
+ * Registra os resultados de validação no console
+ * @param result - Erros e avisos de validação
  */
 const logValidationResults = ({ errors, warnings }: ValidationResult): void => {
   if (errors.length > 0) {
@@ -99,9 +79,9 @@ const logValidationResults = ({ errors, warnings }: ValidationResult): void => {
 }
 
 /**
- * Validates Google Analytics measurement ID format
- * @param {string} measurementId - GA4 measurement ID
- * @returns {boolean} True if format is valid
+ * Valida o formato do ID de medição do Google Analytics
+ * @param measurementId - ID de medição do GA4
+ * @returns True se o formato for válido
  */
 const isValidGAFormat = (measurementId: string): boolean => {
   if (!measurementId.startsWith('G-')) {
@@ -118,12 +98,12 @@ const isValidGAFormat = (measurementId: string): boolean => {
 }
 
 // ================================
-// MAIN FUNCTIONS
+// Main Functions
 // ================================
 
 /**
- * Validates all necessary environment variables
- * Shows warnings for missing variables but doesn't break the application
+ * Valida todas as variáveis de ambiente necessárias
+ * Mostra avisos para variáveis ausentes mas não quebra a aplicação
  */
 export const validateEnvironment = (): void => {
   const errors = validateVariables(ENV_CONFIG.required, true)
@@ -133,8 +113,8 @@ export const validateEnvironment = (): void => {
 }
 
 /**
- * Specific function to validate Analytics configuration
- * @returns {boolean} True if analytics environment is properly configured
+ * Função específica para validar configuração do Analytics
+ * @returns True se o ambiente do analytics estiver configurado corretamente
  */
 export const validateAnalyticsEnv = (): boolean => {
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID

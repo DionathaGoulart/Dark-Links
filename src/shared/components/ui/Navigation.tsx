@@ -1,11 +1,81 @@
+// ================================
+// External Imports
+// ================================
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { NavItem } from '../layouts/types'
-import { useActiveRoute } from '../../hooks/useActiveRoute'
 
-export const Navigation: React.FC<{ items: NavItem[] }> = ({ items }) => {
+// ================================
+// Internal Imports
+// ================================
+import { useActiveRoute } from '@shared'
+import { NavigationProps } from '@types'
+
+// ================================
+// Constants
+// ================================
+
+const LINK_BASE_CLASSES = `
+  relative
+  font-medium
+  text-base
+  tracking-wide
+  transition-all
+  duration-300
+  pb-2
+  before:content-['']
+  before:absolute
+  before:bottom-0
+  before:left-1/2
+  before:w-0
+  before:h-0.5
+  before:transition-all
+  before:duration-300
+  before:ease-out
+  before:-translate-x-1/2
+  before:bg-primary-black
+  dark:before:bg-primary-white
+`
+
+// ================================
+// Helper Functions
+// ================================
+
+/**
+ * Retorna as classes CSS para links baseado no estado ativo
+ * @param href - URL do link
+ * @param isActive - Função que verifica se o link está ativo
+ * @returns Classes CSS formatadas
+ */
+const getLinkClasses = (
+  href: string,
+  isActive: (href: string) => boolean
+): string => {
+  const activeClasses = isActive(href)
+    ? 'text-primary-black dark:text-primary-white before:w-full'
+    : 'text-primary-black/60 dark:text-primary-white/60 hover:text-primary-black dark:hover:text-primary-white hover:before:w-full'
+
+  return `${LINK_BASE_CLASSES} ${activeClasses}`
+}
+
+// ================================
+// Main Component
+// ================================
+
+/**
+ * Componente de navegação responsivo com menu mobile
+ * @component
+ */
+export const Navigation: React.FC<NavigationProps> = ({ items }) => {
+  // ================================
+  // Hooks
+  // ================================
+
   const { isActive } = useActiveRoute()
   const [isOpen, setIsOpen] = useState(false)
+
+  // ================================
+  // Effects
+  // ================================
 
   // Fecha o menu quando a tela ficar grande
   useEffect(() => {
@@ -19,42 +89,20 @@ export const Navigation: React.FC<{ items: NavItem[] }> = ({ items }) => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Fecha o menu quando clicar em um link
-  const handleLinkClick = () => {
+  // ================================
+  // Helper Functions
+  // ================================
+
+  /**
+   * Fecha o menu quando clicar em um link
+   */
+  const handleLinkClick = (): void => {
     setIsOpen(false)
   }
 
-  // Classe base para os links
-  const linkBaseClasses = `
-    relative
-    font-medium
-    text-base
-    tracking-wide
-    transition-all
-    duration-300
-    pb-2
-    before:content-['']
-    before:absolute
-    before:bottom-0
-    before:left-1/2
-    before:w-0
-    before:h-0.5
-    before:transition-all
-    before:duration-300
-    before:ease-out
-    before:-translate-x-1/2
-    before:bg-primary-black
-    dark:before:bg-primary-white
-  `
-
-  const getLinkClasses = (href: string) => {
-    const baseClasses = linkBaseClasses
-    const activeClasses = isActive(href)
-      ? 'text-primary-black dark:text-primary-white before:w-full'
-      : 'text-primary-black/60 dark:text-primary-white/60 hover:text-primary-black dark:hover:text-primary-white hover:before:w-full'
-
-    return `${baseClasses} ${activeClasses}`
-  }
+  // ================================
+  // Render
+  // ================================
 
   return (
     <>
@@ -65,7 +113,7 @@ export const Navigation: React.FC<{ items: NavItem[] }> = ({ items }) => {
             key={item.label}
             to={item.href}
             onClick={item.onClick}
-            className={getLinkClasses(item.href)}
+            className={getLinkClasses(item.href, isActive)}
           >
             {item.label}
           </Link>

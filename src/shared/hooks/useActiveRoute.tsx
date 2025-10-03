@@ -1,11 +1,40 @@
+// ================================
+// External Imports
+// ================================
 import { useLocation } from 'react-router-dom'
 
-// Hook personalizado para detectar rota ativa com React Router
-export const useActiveRoute = () => {
-  const location = useLocation()
-  const currentPath = location.pathname
+// ================================
+// Internal Imports
+// ================================
+import { UseActiveRouteReturn } from '@types'
 
-  const isActive = (href: string) => {
+// ================================
+// Hook
+// ================================
+
+/**
+ * Hook personalizado para detectar rota ativa com React Router
+ * @returns Objeto com caminho atual e função para verificar rota ativa
+ */
+export const useActiveRoute = (): UseActiveRouteReturn => {
+  // ================================
+  // Hooks
+  // ================================
+
+  const location = useLocation()
+
+  // ================================
+  // Helper Functions
+  // ================================
+
+  /**
+   * Verifica se uma rota está ativa
+   * @param href - URL da rota a ser verificada
+   * @returns True se a rota estiver ativa
+   */
+  const isActive = (href: string): boolean => {
+    const currentPath = location.pathname
+
     // Rota home precisa ser exata
     if (href === '/') {
       return currentPath === '/'
@@ -15,5 +44,12 @@ export const useActiveRoute = () => {
     return currentPath === href || currentPath.startsWith(href + '/')
   }
 
-  return { currentPath, isActive }
+  // ================================
+  // Return
+  // ================================
+
+  return {
+    currentPath: location.pathname,
+    isActive
+  }
 }

@@ -1,327 +1,351 @@
-# 🎨 Dark Links
+<div align="center">
 
-> **Uma página de links modernos e elegante para artistas digitais, com tema escuro/claro, internacionalização e otimização de performance**
+# 🔗 Dark Links
 
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel)](https://dark-links.vercel.app)
-[![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.0-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
-[![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+**Linktree profissional para artista digital com tema escuro e design minimalista**
 
----
+[![CI/CD](https://img.shields.io/badge/CI/CD-GitHub%20Actions-2088FF?style=flat-square&logo=githubactions)](https://github.com/DionathaGoulart/Dark-Links/actions)
+[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=flat-square)](LICENSE)
+[![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
+[![Tailwind](https://img.shields.io/badge/Tailwind-3.4.0-38B2AC?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 
-## 📸 Preview
-
-*Uma página de links elegante e responsiva com tema escuro/claro, perfeita para artistas digitais.*
-
-### 🖥️ Desktop View
-- Layout centralizado com perfil do artista
-- Links organizados em botões elegantes
-- Transições suaves entre temas
-
-### 📱 Mobile View
-- Design totalmente responsivo
-- Navegação otimizada para touch
-- Performance otimizada para dispositivos móveis
+</div>
 
 ---
 
-## ✨ Features
+## ✨ Funcionalidades
 
-### 🎯 **Main Features**
+### 🎯 Principais Características
 
-* **🌓 Dark/Light Mode** - Alternância suave entre temas com persistência no localStorage
-* **🌍 Internacionalização** - Suporte para português e inglês com sistema de traduções
-* **📱 Design Responsivo** - Otimizado para desktop, tablet e mobile
-* **⚡ Performance Otimizada** - Carregamento rápido com otimização de imagens
-* **🎨 Interface Elegante** - Design minimalista e moderno
-* **📊 Analytics Integrado** - Google Analytics para tracking de cliques
-* **🔗 Links Organizados** - Estrutura clara para portfólio e redes sociais
+- **🎨 Design Minimalista** - Interface limpa e profissional focada no conteúdo
+- **🌙 Tema Escuro** - Modo escuro nativo com transições suaves
+- **📱 Totalmente Responsivo** - Otimizado para todos os dispositivos
+- **⚡ Performance Otimizada** - Carregamento rápido com Vite e otimizações avançadas
+- **🔗 Links Organizados** - Estrutura clara para portfólio, lojas e redes sociais
+- **📊 Analytics Integrado** - Rastreamento de cliques com Google Analytics
+- **🌍 Internacionalização** - Suporte a múltiplos idiomas (PT/EN)
+- **♿ Acessibilidade** - Seguindo padrões WCAG para inclusão
 
-### 🛠️ **Technical Features**
+### 🛠️ Funcionalidades Técnicas
 
-* **TypeScript** - Tipagem estática para maior segurança
-* **ESLint + Prettier** - Linting e formatação automática
-* **Otimização de Imagens** - Compressão automática e formatos modernos (WebP)
-* **Alias de Importação** - Path mapping para imports limpos
-* **Hot Module Replacement** - Desenvolvimento rápido com Vite
-* **Build Otimizado** - Bundle splitting e otimizações de produção
+- **🏗️ Arquitetura Modular** - Estrutura organizada com separação de responsabilidades
+- **🎯 TypeScript Completo** - Tipagem forte em toda a aplicação
+- **🔄 Roteamento Dinâmico** - Sistema de rotas configurável e extensível
+- **🎨 Sistema de Temas** - Context API para gerenciamento de tema
+- **📦 Otimização de Imagens** - Compressão automática e formatos modernos
+- **🧪 CI/CD Automatizado** - Deploy automático com GitHub Actions
 
 ---
 
-## 🏗️ Project Architecture
+## 🏗️ Arquitetura do Projeto
 
-```txt
+```
 src/
-├── assets/       # Imagens e arquivos estáticos
-├── core/         # Configuração principal e providers
-│   ├── App.tsx   # Componente principal
-│   └── router/   # Configuração de rotas
-├── features/     # Funcionalidades específicas
-│   └── ga/       # Google Analytics
-├── pages/        # Páginas da aplicação
-│   └── Home.tsx  # Página principal
-├── shared/       # Componentes/hooks/utils reutilizáveis
-│   ├── components/ # Componentes UI compartilhados
-│   ├── contexts/   # Contextos React (Theme, I18n)
-│   ├── hooks/      # Custom hooks
-│   ├── translations/ # Arquivos de tradução
-│   └── utils/       # Utilitários
-├── styles/       # Estilos globais
-└── types/        # Definições TypeScript
+├── 📁 assets/              # Recursos estáticos (imagens, ícones)
+│   ├── logo.jpg
+│   └── index.ts
+├── 📁 core/                # Núcleo da aplicação
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── providers/          # Contextos globais (tema, i18n)
+│   └── routing/            # Configuração de rotas
+├── 📁 features/            # Funcionalidades específicas
+│   └── ga/                 # Google Analytics
+├── 📁 pages/               # Componentes de páginas
+│   └── Home.tsx
+├── 📁 shared/              # Componentes e utilitários compartilhados
+│   ├── components/         # Componentes reutilizáveis
+│   ├── hooks/              # Hooks customizados
+│   ├── translations/       # Arquivos de tradução
+│   └── utils/              # Funções utilitárias
+├── 📁 styles/              # Estilos globais
+└── 📁 types/               # Definições de tipos TypeScript
 ```
 
 ---
 
-## 📄 Pages and Sections
+## 📄 Páginas e Seções
 
-### 🏠 **Home Page**
-- **Perfil do Artista**: Foto, nome (@DARK) e bio
-- **Links Sociais**: YouTube, Email e Instagram
-- **Botões de Links**: 
-  - Redbubble (roupas e adesivos)
-  - Colab55 (arte no Brasil)
-  - INPRNT (prints de arte)
-  - Displate (pôsteres exclusivos)
-  - Behance (portfólio)
-  - Portfólio pessoal
-  - Link para doações (Ko-fi)
+### 🏠 Página Inicial
+
+- **Perfil do Artista** - Foto, nome e bio personalizáveis
+- **Links Sociais** - YouTube, Instagram e Email com ícones SVG
+- **Botões de Ação** - Links para portfólio, lojas e doações
+- **Tema Adaptativo** - Alternância automática entre claro/escuro
+- **Analytics** - Rastreamento de todos os cliques em links
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tecnologias Utilizadas
 
-### **Frontend**
+### Frontend Principal
 
-* **React 19.1.0** - Biblioteca principal para interface
-* **TypeScript 5.8.3** - Superset do JavaScript com tipagem
-* **React Router DOM 7.6.2** - Roteamento para SPA
-* **Tailwind CSS 3.4.0** - Framework CSS utilitário
-* **Lucide React** - Ícones modernos e otimizados
-* **Inter Font** - Tipografia elegante e legível
+- **React 19.1.0** - Biblioteca para interfaces de usuário
+- **TypeScript 5.8.3** - Superset JavaScript com tipagem estática
+- **Vite 6.3.5** - Build tool moderna e rápida
+- **React Router DOM 7.6.2** - Roteamento para aplicações React
 
-### **Development Tools**
+### Estilização e UI
 
-* **Vite 6.3.5** - Build tool e dev server
-* **ESLint** - Linting de código
-* **Prettier** - Formatação automática
-* **TypeScript ESLint** - Regras específicas para TS
-* **PostCSS + Autoprefixer** - Processamento CSS
+- **Tailwind CSS 3.4.0** - Framework CSS utility-first
+- **PostCSS 8.4.35** - Processador CSS com plugins
+- **Autoprefixer 10.4.17** - Adiciona prefixos CSS automaticamente
+- **Inter Font 5.2.6** - Tipografia moderna e legível
 
-### **CI/CD & Deployment**
+### Ferramentas de Desenvolvimento
 
-* **Vercel** - Deploy automático e CDN global
-* **GitHub Actions** - CI/CD pipeline (configurável)
+- **ESLint 9.29.0** - Linter para qualidade de código
+- **Prettier 3.5.3** - Formatador de código automático
+- **TypeScript ESLint 8.34.1** - Regras ESLint para TypeScript
+- **Vite Imagetools 7.1.0** - Otimização e transformação de imagens
 
-### **Integrations**
+### Deploy e CI/CD
 
-* **Google Analytics** - Tracking de eventos e cliques
-* **EmailJS** - Integração para contato por email
-* **Vite ImageTools** - Otimização automática de imagens
-* **Imagemin** - Compressão de assets
+- **Vercel** - Plataforma de deploy automático
+- **GitHub Actions** - Automação de CI/CD
+- **Lighthouse CI** - Auditoria de performance automatizada
+
+### Integrações
+
+- **Google Analytics 4** - Rastreamento de analytics
+- **EmailJS 4.4.1** - Envio de emails via JavaScript
+- **Lucide React 0.525.0** - Biblioteca de ícones SVG
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Como Executar
 
-### **Prerequisites**
+### Pré-requisitos
 
-* **Node.js** 18+ (recomendado 20+)
-* **npm** ou **yarn** ou **pnpm**
+- Node.js 18+ instalado
+- npm ou yarn como gerenciador de pacotes
+- Git para clonagem do repositório
 
-### **Installation**
+### Instalação
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/dark-links.git
-cd dark-links
+git clone https://github.com/DionathaGoulart/Dark-Links.git
+
+# Entre no diretório
+cd Dark-Links
 
 # Instale as dependências
 npm install
 
-# Inicie o servidor de desenvolvimento
+# Execute em modo desenvolvimento
 npm run dev
 ```
 
-Acesse `http://localhost:5173` no seu navegador.
-
-### **Available Scripts**
+### Scripts Disponíveis
 
 ```bash
-npm run dev      # Servidor de desenvolvimento
-npm run build    # Build para produção
-npm run preview  # Preview do build de produção
-npm run lint     # Verificação de código com ESLint
+# Desenvolvimento
+npm run dev          # Inicia servidor de desenvolvimento
+npm run preview      # Visualiza build de produção localmente
+
+# Build e Deploy
+npm run build        # Gera build otimizado para produção
+
+# Qualidade de Código
+npm run lint         # Executa ESLint para verificar código
 ```
 
 ---
 
-## 🧪 Tests
+## 🧪 CI/CD e Qualidade
 
-*O projeto está preparado para implementação de testes:*
+### GitHub Actions
 
-### **Ferramentas Recomendadas**
-* **Vitest** - Para testes unitários e de integração
-* **React Testing Library** - Para testes de componentes
-* **Cypress** - Para testes E2E
+O projeto possui workflow automatizado de CI/CD:
 
-### **Como Executar Testes**
+- **Build & Test** - Verifica se o projeto compila corretamente
+- **Lint Check** - Valida qualidade do código com ESLint
+- **Lighthouse Audit** - Testa performance, acessibilidade e SEO
+- **Deploy Automático** - Deploy na Vercel em caso de sucesso
+
+### Ferramentas de Qualidade
+
+- **ESLint** - Análise estática de código com regras customizadas
+- **Prettier** - Formatação automática e consistente
+- **TypeScript** - Verificação de tipos em tempo de compilação
+- **Lighthouse CI** - Auditoria contínua de performance
+
+---
+
+## 🚀 Deploy
+
+### Deploy Automático (Vercel)
+
+O projeto está configurado para deploy automático na Vercel:
+
+- **Produção**: Deploy automático na branch `main`
+- **Preview**: Deploy automático em Pull Requests
+- **URL**: `https://dark-links.vercel.app`
+
+### Configuração Vercel
+
+- **Framework**: Vite
+- **Runtime**: Node.js 18.x
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Install Command**: `npm install`
+
+### Configuração Automática
+
+1. Conecte seu repositório no Vercel Dashboard
+2. Configure as variáveis de ambiente necessárias
+3. O deploy acontece automaticamente via GitHub Actions
+
+### Workflows GitHub Actions
+
+O projeto possui workflow automatizado:
+
+- **CI/CD** (`ci.yml`) - Build, testes, lint e deploy automático
+
+### Deploy Manual
+
 ```bash
-npm run test        # Testes unitários
-npm run test:e2e    # Testes E2E
-npm run test:coverage # Cobertura de testes
+# Build para produção
+npm run build
+
+# Deploy via Vercel CLI
+vercel --prod
 ```
 
 ---
 
-## 🚀 Deployment
+## 📊 Performance
 
-### **Vercel (Recomendado)**
-
-1. Conecte seu repositório GitHub ao Vercel
-2. Configure as variáveis de ambiente:
-   - `VITE_GA_MEASUREMENT_ID` (opcional)
-3. Deploy automático a cada push na branch `main`
-
-### **Outras Plataformas**
-
-* **Netlify**: Compatível com build estático
-* **GitHub Pages**: Para projetos open source
-* **Firebase Hosting**: Alternativa robusta
+- **First Contentful Paint**: < 1.5s
+- **Largest Contentful Paint**: < 2.5s
+- **Cumulative Layout Shift**: < 0.1
+- **Total Blocking Time**: < 300ms
+- **Speed Index**: < 3.0s
+- **Performance Score**: > 90
+- **Accessibility Score**: > 95
+- **Best Practices Score**: > 90
+- **SEO Score**: > 90
 
 ---
 
-## 📊 Performance & Accessibility
+## 🔧 Configuração
 
-### **Performance**
-* **Lighthouse Score**: 95+ em todas as métricas
-* **First Contentful Paint**: < 1.5s
-* **Largest Contentful Paint**: < 2.5s
-* **Cumulative Layout Shift**: < 0.1
+### Variáveis de Ambiente
 
-### **Accessibility**
-* **WCAG 2.1 AA** - Conformidade com diretrizes
-* **Navegação por teclado** - Totalmente acessível
-* **Screen readers** - Compatível com leitores de tela
-* **Contraste** - Ratios adequados em ambos os temas
-
----
-
-## 🔧 Configuration
-
-### **Environment Variables**
-
-Crie um arquivo `.env.local`:
+Crie um arquivo `.env.local` na raiz do projeto:
 
 ```env
-# Google Analytics (opcional)
+# Google Analytics
 VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# EmailJS (opcional)
+VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
+VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
+VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxx
 ```
 
-### **Customização**
+### Personalização
 
-* **Temas**: Modifique `tailwind.config.js` para cores personalizadas
-* **Traduções**: Adicione novos idiomas em `src/shared/translations/`
-* **Links**: Atualize o array `linkButtons` em `Home.tsx`
-
----
-
-## 📱 Responsiveness
-
-### **Breakpoints Suportados**
-* **Mobile**: 320px - 768px
-* **Tablet**: 768px - 1024px  
-* **Desktop**: 1024px+
-
-### **Otimizações Mobile**
-* Touch targets de 44px+
-* Swipe gestures suportados
-* Performance otimizada para 3G
-* Imagens responsivas com srcset
+- **Perfil**: Edite `src/pages/Home.tsx` para alterar foto, nome e bio
+- **Links**: Configure os links em `src/pages/Home.tsx` no array `linkButtons`
+- **Cores**: Modifique o tema em `tailwind.config.js`
+- **Traduções**: Adicione novos idiomas em `src/shared/translations/`
+- **Analytics**: Configure o ID de medição no arquivo `.env.local`
 
 ---
 
-## 🌍 Internationalization
+## 📱 Responsividade
 
-### **Idiomas Suportados**
-* **🇧🇷 Português** (padrão)
-* **🇺🇸 English**
+O linktree é totalmente responsivo e otimizado para:
 
-### **Como Adicionar Novos Idiomas**
+- **📱 Mobile** (320px - 768px)
+- **📱 Tablet** (768px - 1024px)
+- **💻 Desktop** (1024px - 1440px)
+- **🖥️ Large Desktop** (1440px+)
 
-1. Crie arquivo em `src/shared/translations/novo-idioma.ts`
-2. Adicione as traduções seguindo o padrão existente
-3. Atualize o contexto I18n para incluir o novo idioma
-4. Adicione botão de seleção no componente LanguageSwitch
+---
+
+## ♿ Acessibilidade
+
+- **Navegação por Teclado** - Suporte completo para navegação sem mouse
+- **Screen Readers** - Labels e descrições adequadas para leitores de tela
+- **Contraste de Cores** - Paleta de cores com contraste adequado (WCAG AA)
+- **Foco Visual** - Indicadores claros de foco em elementos interativos
+- **Semântica HTML** - Estrutura semântica correta para melhor compreensão
+
+---
+
+## 🌍 Internacionalização
+
+Suporte completo a múltiplos idiomas:
+
+- **🇧🇷 Português** - Idioma padrão com traduções completas
+- **🇺🇸 Inglês** - Traduções em inglês para alcance global
+- **Sistema Automático** - Detecção automática do idioma do navegador
+- **Alternância Manual** - Seletor de idioma no header da aplicação
 
 ---
 
 ## 📈 Analytics
 
-### **Google Analytics 4**
-* Tracking automático de page views
-* Eventos customizados para cliques em links
-* Métricas de performance e engagement
-* Relatórios de conversão por link
+Integração completa com Google Analytics 4:
 
-### **Métricas Rastreadas**
-* Visualizações da página
-* Cliques em links sociais
-* Cliques em botões de portfólio
-* Tempo de permanência
-* Taxa de rejeição
+- **Rastreamento de Cliques** - Monitora todos os cliques em links externos
+- **Páginas Visitadas** - Acompanha navegação e tempo na página
+- **Dispositivos** - Análise de dispositivos e resoluções utilizadas
+- **Performance** - Métricas de carregamento e interação
 
 ---
 
-## 🤝 Contribution
+## 📄 Licença
 
-### **Como Contribuir**
+**⚠️ ATENÇÃO: Este projeto é de uso exclusivo e pessoal.**
 
-1. **Fork** o projeto
-2. Crie uma **branch** para sua feature (`git checkout -b feature/AmazingFeature`)
-3. **Commit** suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um **Pull Request**
+### Direitos Reservados
 
-### **Padrões de Código**
+Este software e sua documentação são propriedade exclusiva do autor e estão protegidos por direitos autorais. É **expressamente proibido**:
 
-* Use **TypeScript** para todas as funcionalidades
-* Siga as regras do **ESLint** configuradas
-* Escreva **commits semânticos**
-* Adicione **testes** para novas funcionalidades
-* Mantenha a **cobertura de testes** acima de 80%
+- ❌ **Copiar** o código fonte
+- ❌ **Modificar** sem autorização
+- ❌ **Distribuir** o software
+- ❌ **Usar** para fins comerciais
+- ❌ **Criar trabalhos derivados**
+- ❌ **Fazer engenharia reversa**
 
----
+### Uso Permitido
 
-## 📄 License
+- ✅ **Visualizar** o código para fins educacionais
+- ✅ **Estudar** a implementação para aprendizado
+- ✅ **Inspirar-se** nas ideias e conceitos
+- ✅ **Fazer fork** apenas para estudo pessoal
 
-Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+### Consequências
 
-### **Permitido**
-* ✅ Uso comercial
-* ✅ Modificação
-* ✅ Distribuição
-* ✅ Uso privado
+A violação desta licença resultará em:
 
-### **Requisitos**
-* 📝 Manter aviso de copyright
-* 📝 Incluir licença MIT
+- Ação legal imediata
+- Remoção do conteúdo infrator
+- Danos e prejuízos conforme a lei
+
+**© 2025 Dionatha Goulart. Todos os direitos reservados.**
 
 ---
 
-## 📞 Contact
+## 📞 Contato
 
-**Dark - Digital Artist**
-
-* **🎨 Portfolio**: [dark.art.br](https://dark.art.br)
-* **📧 Email**: [darkning.arts@gmail.com](mailto:darkning.arts@gmail.com)
-* **📱 Instagram**: [@darkning.art](https://www.instagram.com/darkning.art/)
-* **🎥 YouTube**: [Dark Channel](https://www.youtube.com/channel/UCw1OmBxX3P-xY_GGkmslJ9g)
-* **💼 Behance**: [darkning](https://www.behance.net/darkning)
-* **☕ Ko-fi**: [Support My Work](https://ko-fi.com/darkning)
+**Desenvolvedor**: Dionatha Goulart  
+**Email**: dionatha.work@gmail.com  
+**Portfolio**: https://dionatha.com.br/  
+**GitHub**: https://github.com/DionathaGoulart  
+**Linkedin**: https://www.linkedin.com/in/dionathagoulart/
 
 ---
 
-> *Made with ❤️ and ☕ by **Dark**. If you liked it, consider giving a ⭐!*
+<div align="center">
 
-*Uma página de links moderna e elegante para conectar artistas digitais com seu público através de uma experiência otimizada e acessível.*
+**Feito by Dionatha Goulart**
+
+</div>

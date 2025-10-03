@@ -1,0 +1,140 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  # Job de Testes
+  test:
+    name: Testes e Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Verificação de tipos TypeScript
+        run: npx tsc --noEmit
+
+      - name: Executar linting
+        run: npm run lint
+
+      - name: Build do projeto
+        run: npm run build
+
+      - name: Auditoria de segurança
+        run: npm audit --audit-level moderate
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: dist/
+          retention-days: 1
+
+  # Job de Lighthouse (apenas em PRs)
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    needs: test
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build do projeto
+        run: npm run build
+
+      - name: Executar Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          configPath: './lighthouserc.json'
+          uploadArtifacts: false
+          temporaryPublicStorage: true
+
+  # Job de Deploy Preview
+  deploy-preview:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/develop')
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+          path: dist/
+
+      - name: Setup Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Deploy Preview no Vercel
+        run: |
+          echo "🚀 Iniciando deploy preview..."
+          echo "Branch: ${{ github.head_ref || github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
+          # Placeholder para deploy no Vercel
+          # vercel --token ${{ secrets.VERCEL_TOKEN }} --yes
+          echo "✅ Deploy preview configurado (descomente as linhas acima e configure VERCEL_TOKEN)"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+  # Job de Deploy Production
+  deploy-production:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment: production
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+          path: dist/
+
+      - name: Setup Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Deploy Production no Vercel
+        run: |
+          echo "🚀 Iniciando deploy production..."
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
+          # Placeholder para deploy no Vercel
+          # vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --yes
+          echo "✅ Deploy production configurado (descomente as linhas acima e configure VERCEL_TOKEN)"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

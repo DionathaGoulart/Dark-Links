@@ -1,8 +1,9 @@
 // ================================
 // External and Internal Imports
 // ================================
-import HomePage from '@/pages/Home'
-import { RouteConfig } from '@core/router'
+
+import { HomePage } from '@pages'
+import { RouteConfig } from '@types'
 
 // ================================
 // Route Configuration

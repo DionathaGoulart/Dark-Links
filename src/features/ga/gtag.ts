@@ -1,11 +1,15 @@
 // ================================
-// ANALYTICS - LINK TRACKING
+// Internal Imports
 // ================================
 import { ANALYTICS_CONFIG } from './config'
 
+// ================================
+// Global Types
+// ================================
+
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void
+    gtag: (...args: unknown[]) => void
   }
 }
 

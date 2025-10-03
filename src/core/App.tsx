@@ -1,12 +1,35 @@
+// ================================
+// External Imports
+// ================================
 import React, { useEffect } from 'react'
-import { AppRouter, appRoutes } from '@core/router'
-import { MainLayout, ThemeProvider } from '@shared'
-import { initializeAnalytics } from '@/features/ga'
 
+// ================================
+// Internal Imports
+// ================================
+import { AppRouter, appRoutes, ThemeProvider } from '@core'
+import { MainLayout } from '@shared'
+import { initializeAnalytics } from '@features/ga'
+
+// ================================
+// Main Component
+// ================================
+
+/**
+ * Componente principal da aplicação que inicializa analytics e fornece contexto de tema
+ * @component
+ */
 const App: React.FC = () => {
+  // ================================
+  // Effects
+  // ================================
+
   useEffect(() => {
     initializeAnalytics()
   }, [])
+
+  // ================================
+  // Render
+  // ================================
 
   return (
     <ThemeProvider>
@@ -17,4 +40,7 @@ const App: React.FC = () => {
   )
 }
 
+// ================================
+// Exports
+// ================================
 export default App

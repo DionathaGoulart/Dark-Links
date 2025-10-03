@@ -1,12 +1,8 @@
 // ================================
-// ANALYTICS CONFIG
+// Internal Imports
 // ================================
-import { validateAnalyticsEnv } from '@/shared/utils/envValidation'
-
-export interface AnalyticsConfig {
-  measurementId: string
-  enabled: boolean
-}
+import { validateAnalyticsEnv } from '@shared'
+import { AnalyticsConfig } from './types'
 
 export const ANALYTICS_CONFIG: AnalyticsConfig = {
   measurementId: import.meta.env.VITE_GA_MEASUREMENT_ID,

@@ -1,26 +1,18 @@
-// Types only for HomePage usage
-export type Language = 'pt' | 'en'
+// ================================
+// Central Types Export
+// ================================
 
-export interface Translation {
-  pageTitles: {
-    home: string
-  }
-  pages: {
-    home: {
-      title: string
-    }
-  }
-  linktree: {
-    bio: string
-    redbubble: string
-    colab55: string
-    inprnt: string
-    displate: string
-    behance: string
-    portfolio: string
-    donate: string
-  }
-  footer: {
-    language: string
-  }
-}
+// Core Types - Tipos fundamentais da aplicação
+export * from './core'
+export * from './core/translation'
+export * from './core/context'
+export * from './core/routing'
+
+// Shared Types - Tipos compartilhados entre componentes
+export * from './shared/layout'
+export * from './shared/component'
+export * from './shared/hook'
+export * from './shared/utility'
+
+// Pages Types - Tipos específicos de páginas
+export * from './pages'

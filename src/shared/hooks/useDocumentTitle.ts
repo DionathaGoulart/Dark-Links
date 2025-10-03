@@ -1,10 +1,32 @@
+// ================================
+// External Imports
+// ================================
 import { useEffect } from 'react'
-import { useI18n } from '../contexts/I18nContext'
 
-export const useDocumentTitle = (
-  pageKey: keyof typeof import('../translations/pt').ptTranslations.pages
-) => {
+// ================================
+// Internal Imports
+// ================================
+import { useI18n } from '@core'
+import { PageKey } from '@types'
+
+// ================================
+// Hook
+// ================================
+
+/**
+ * Hook para definir o título do documento baseado nas traduções
+ * @param pageKey - Chave da página para obter o título
+ */
+export const useDocumentTitle = (pageKey: PageKey): void => {
+  // ================================
+  // Hooks
+  // ================================
+
   const { t } = useI18n()
+
+  // ================================
+  // Effects
+  // ================================
 
   useEffect(() => {
     const title = t.pages[pageKey].title
