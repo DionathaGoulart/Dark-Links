@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import { imagetools } from 'vite-imagetools'
-import viteImagemin from 'vite-plugin-imagemin'
 
 export default defineConfig({
   plugins: [
@@ -26,42 +25,6 @@ export default defineConfig({
           )
         }
         return new URLSearchParams()
-      }
-    }),
-
-    // Plugin para compressão automática de imagens
-    viteImagemin({
-      // Configurações para diferentes formatos
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false
-      },
-      optipng: {
-        optimizationLevel: 7
-      },
-      mozjpeg: {
-        quality: 80,
-        progressive: true
-      },
-      pngquant: {
-        quality: [0.65, 0.8],
-        speed: 4
-      },
-      svgo: {
-        plugins: [
-          {
-            name: 'removeViewBox',
-            active: false
-          },
-          {
-            name: 'removeEmptyAttrs',
-            active: false
-          }
-        ]
-      },
-      // Configuração para WebP
-      webp: {
-        quality: 80
       }
     })
   ],

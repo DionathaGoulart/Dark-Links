@@ -1,7 +1,7 @@
 // ================================
 // External Imports
 // ================================
-import React from 'react'
+import * as React from 'react'
 
 // ================================
 // Internal Imports
@@ -121,11 +121,11 @@ export const HomePage: React.FC = () => {
         theme === 'dark' ? 'bg-primary-dark' : 'bg-primary-white'
       }`}
     >
-      <div className="max-w-2xl mx-auto px-6 py-12">
+      <div className="max-w-2xl mx-auto px-6 py-6 sm:py-8 lg:py-12">
         {/* Profile Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6 sm:mb-8 lg:mb-12">
           {/* Profile Image */}
-          <div className="relative mx-auto w-24 h-24 mb-6">
+          <div className="relative mx-auto w-20 h-20 sm:w-24 sm:h-24 mb-4 sm:mb-6">
             <img
               src={assets.logo}
               alt="Profile"
@@ -135,7 +135,7 @@ export const HomePage: React.FC = () => {
 
           {/* Username */}
           <h1
-            className={`text-2xl font-semibold mb-3 ${
+            className={`text-xl sm:text-2xl font-semibold mb-2 sm:mb-3 ${
               theme === 'dark' ? 'text-white' : 'text-gray-900'
             }`}
           >
@@ -144,7 +144,7 @@ export const HomePage: React.FC = () => {
 
           {/* Bio */}
           <p
-            className={`text-base leading-relaxed max-w-md mx-auto mb-8 ${
+            className={`text-sm sm:text-base leading-relaxed max-w-md mx-auto mb-4 sm:mb-6 lg:mb-8 ${
               theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
             }`}
           >
@@ -152,7 +152,7 @@ export const HomePage: React.FC = () => {
           </p>
 
           {/* Social Links */}
-          <div className="flex justify-center space-x-6 mb-8">
+          <div className="flex justify-center space-x-4 sm:space-x-6 mb-4 sm:mb-6 lg:mb-8">
             {SOCIAL_LINKS.map((social, index) => (
               <a
                 key={index}
@@ -160,7 +160,7 @@ export const HomePage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleLinkClick(social.label, social.href)}
-                className={`p-3 rounded-full transition-all duration-200 hover:scale-110 ${
+                className={`p-2 sm:p-3 rounded-full transition-all duration-200 hover:scale-110 ${
                   theme === 'dark'
                     ? 'text-gray-400 hover:text-white hover:bg-gray-800'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
@@ -174,7 +174,7 @@ export const HomePage: React.FC = () => {
         </div>
 
         {/* Link Buttons */}
-        <div className="space-y-4">
+        <div className="space-y-2 sm:space-y-3 lg:space-y-4">
           {linkButtons.map((button, index) => (
             <a
               key={index}
@@ -182,7 +182,7 @@ export const HomePage: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleLinkClick(button.title, button.href)}
-              className={`block w-full p-4 mb-4 rounded-full text-center font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
+              className={`block w-full p-3 sm:p-4 rounded-full text-center font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
                 theme === 'dark'
                   ? 'bg-black text-white border-2 border-white hover:bg-white hover:text-black'
                   : 'bg-white text-black border-2 border-black hover:bg-black hover:text-white'
