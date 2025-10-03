@@ -240,11 +240,6 @@ Crie um arquivo `.env.local` na raiz do projeto:
 ```env
 # Google Analytics
 VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-
-# EmailJS (opcional)
-VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
-VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
-VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxx
 ```
 
 ### Personalização
