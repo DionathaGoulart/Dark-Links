@@ -98,10 +98,6 @@ export const HomePage: React.FC = () => {
       href: 'https://displate.com/Darkning?art=683cd403062f7'
     },
     {
-      title: t.linktree?.behance || 'Behance',
-      href: 'https://www.behance.net/darkning'
-    },
-    {
       title: t.linktree?.portfolio || 'My Portfolio',
       href: 'https://dark.art.br'
     },
